@@ -1,0 +1,42 @@
+Jan 26 10:30:25 f5 WAF-AVISEC: info: 192.168.1.100 - - [26/Jan/2025:10:30:25 +0000] "GET /index.html HTTP/1.1" 200 1024
+Jan 26 10:30:28 f5 WAF-AVISEC: info: 192.168.1.101 - - [26/Jan/2025:10:30:28 +0000] "GET /about.html HTTP/1.1" 200 1024
+Jan 26 10:30:35 f5 WAF-AVISEC: info: 192.168.1.102 - - [26/Jan/2025:10:30:35 +0000] "POST /login HTTP/1.1" 200 2048
+Jan 26 10:30:40 f5 WAF-AVISEC: info: 192.168.1.103 - - [26/Jan/2025:10:30:40 +0000] "GET /products HTTP/1.1" 200 512
+Jan 26 10:30:45 f5 WAF-AVISEC: info: 192.168.1.104 - - [26/Jan/2025:10:30:45 +0000] "POST /checkout HTTP/1.1" 200 1024
+Jan 26 10:31:01 f5 WAF-AVISEC: alert: 192.168.1.105 - - [26/Jan/2025:10:31:01 +0000] "GET /login?username=admin' OR 1=1 -- HTTP/1.1" 400 256 - SQL Injection attempt
+Jan 26 10:31:15 f5 WAF-AVISEC: alert: 192.168.1.106 - - [26/Jan/2025:10:31:15 +0000] "POST /login HTTP/1.1" 403 1024 - Failed login attempt (possible brute force)
+Jan 26 10:31:30 f5 WAF-AVISEC: alert: 192.168.1.107 - - [26/Jan/2025:10:31:30 +0000] "GET /secure-page HTTP/1.1" 403 256 - Weak SSL/TLS detected
+Jan 26 10:31:45 f5 WAF-AVISEC: alert: 192.168.1.108 - - [26/Jan/2025:10:31:45 +0000] "POST /upload HTTP/1.1" 400 128 - XXE attack attempt with malicious XML payload
+Jan 26 10:32:00 f5 WAF-AVISEC: alert: 192.168.1.109 - - [26/Jan/2025:10:32:00 +0000] "GET /admin/config HTTP/1.1" 403 512 - Attempt to access restricted file
+Jan 26 10:32:15 f5 WAF-AVISEC: alert: 192.168.1.110 - - [26/Jan/2025:10:32:15 +0000] "GET /../../etc/passwd HTTP/1.1" 400 256 - Directory traversal attack detected
+Jan 26 10:32:30 f5 WAF-AVISEC: alert: 192.168.1.111 - - [26/Jan/2025:10:32:30 +0000] "GET /search?q=<script>alert('XSS')</script> HTTP/1.1" 400 128 - XSS attack detected
+Jan 26 10:32:45 f5 WAF-AVISEC: alert: 192.168.1.112 - - [26/Jan/2025:10:32:45 +0000] "POST /login HTTP/1.1" 400 512 - Malicious serialized object detected
+Jan 26 10:33:00 f5 WAF-AVISEC: alert: 192.168.1.113 - - [26/Jan/2025:10:33:00 +0000] "GET / HTTP/1.1" 400 128 - Access to outdated component with known CVE vulnerability
+Jan 26 10:33:15 f5 WAF-AVISEC: alert: 192.168.1.114 - - [26/Jan/2025:10:33:15 +0000] "GET /hidden-page HTTP/1.1" 404 256 - Unauthorized access attempt (no logs available)
+Jan 26 10:33:30 f5 WAF-AVISEC: alert: 192.168.1.115 - - [26/Jan/2025:10:33:30 +0000] "POST /upload HTTP/1.1" 400 512 - Malicious file upload attempt
+Jan 26 10:33:45 f5 WAF-AVISEC: alert: 192.168.1.116 - - [26/Jan/2025:10:33:45 +0000] "GET /admin HTTP/1.1" 403 512 - Unauthorized access to admin panel
+Jan 26 10:34:00 f5 WAF-AVISEC: alert: 192.168.1.117 - - [26/Jan/2025:10:34:00 +0000] "GET /cgi-bin/test?cmd=ls HTTP/1.1" 400 256 - Command injection attempt
+Jan 26 10:34:15 f5 WAF-AVISEC: alert: 192.168.1.118 - - [26/Jan/2025:10:34:15 +0000] "POST /api/user HTTP/1.1" 403 1024 - Brute force attempt on user creation API
+Jan 26 10:34:30 f5 WAF-AVISEC: alert: 192.168.1.119 - - [26/Jan/2025:10:34:30 +0000] "GET /robots.txt HTTP/1.1" 200 128 - Information gathering (robots.txt)
+Jan 26 10:34:45 f5 WAF-AVISEC: alert: 192.168.1.120 - - [26/Jan/2025:10:34:45 +0000] "POST /api/v1/authenticate HTTP/1.1" 400 256 - Invalid authentication attempt
+Jan 26 10:35:00 f5 WAF-AVISEC: alert: 192.168.1.121 - - [26/Jan/2025:10:35:00 +0000] "POST /contact HTTP/1.1" 403 512 - CSRF attack attempt
+Jan 26 10:35:15 f5 WAF-AVISEC: alert: 192.168.1.122 - - [26/Jan/2025:10:35:15 +0000] "GET /admin/settings HTTP/1.1" 403 128 - Unauthorized access attempt to settings
+Jan 26 10:35:30 f5 WAF-AVISEC: alert: 192.168.1.123 - - [26/Jan/2025:10:35:30 +0000] "GET /wp-login.php HTTP/1.1" 200 512 - WordPress brute force attack attempt
+Jan 26 10:35:45 f5 WAF-AVISEC: alert: 192.168.1.124 - - [26/Jan/2025:10:35:45 +0000] "GET /admin/dashboard HTTP/1.1" 403 128 - Unauthorized access to admin dashboard
+Jan 26 10:36:00 f5 WAF-AVISEC: alert: 192.168.1.125 - - [26/Jan/2025:10:36:00 +0000] "POST /admin/submit HTTP/1.1" 400 512 - SQL Injection attempt (admin form)
+Jan 26 10:36:15 f5 WAF-AVISEC: alert: 192.168.1.126 - - [26/Jan/2025:10:36:15 +0000] "GET /.git/config HTTP/1.1" 403 128 - Sensitive file access attempt (.git)
+Jan 26 10:36:30 f5 WAF-AVISEC: alert: 192.168.1.127 - - [26/Jan/2025:10:36:30 +0000] "POST /login HTTP/1.1" 400 512 - Credential stuffing attack
+Jan 26 10:36:45 f5 WAF-AVISEC: alert: 192.168.1.128 - - [26/Jan/2025:10:36:45 +0000] "GET / HTTP/1.1" 200 1024 - Cross-Site Request Forgery (CSRF) attack attempt
+Jan 26 10:37:00 f5 WAF-AVISEC: alert: 192.168.1.129 - - [26/Jan/2025:10:37:00 +0000] "GET /wp-content/themes/theme/style.css HTTP/1.1" 200 128 - Information gathering on WordPress theme
+Jan 26 10:37:15 f5 WAF-AVISEC: alert: 192.168.1.130 - - [26/Jan/2025:10:37:15 +0000] "POST /order HTTP/1.1" 400 512 - XML Injection attack
+Jan 26 10:37:30 f5 WAF-AVISEC: alert: 192.168.1.131 - - [26/Jan/2025:10:37:30 +0000] "GET /page?param=<script>alert('XSS')</script> HTTP/1.1" 400 128 - XSS attack detected
+Jan 26 10:37:45 f5 WAF-AVISEC: alert: 192.168.1.132 - - [26/Jan/2025:10:37:45 +0000] "GET /admin/config HTTP/1.1" 403 512 - Unauthorized access attempt (admin config)
+Jan 26 10:38:00 f5 WAF-AVISEC: alert: 192.168.1.133 - - [26/Jan/2025:10:38:00 +0000] "POST /login?username=admin' -- HTTP/1.1" 400 256 - SQL Injection attempt (admin login)
+Jan 26 10:38:15 f5 WAF-AVISEC: alert: 192.168.1.134 - - [26/Jan/2025:10:38:15 +0000] "GET /secret HTTP/1.1" 403 128 - Unauthorized access attempt (secret page)
+Jan 26 10:38:30 f5 WAF-AVISEC: alert: 192.168.1.135 - - [26/Jan/2025:10:38:30 +0000] "POST /upload HTTP/1.1" 400 512 - Malicious file upload attempt
+Jan 26 10:38:45 f5 WAF-AVISEC: alert: 192.168.1.136 - - [26/Jan/2025:10:38:45 +0000] "POST /register HTTP/1.1" 403 128 - Brute force registration attempt
+Jan 26 10:39:00 f5 WAF-AVISEC: alert: 192.168.1.137 - - [26/Jan/2025:10:39:00 +0000] "GET /admin HTTP/1.1" 403 256 - Unauthorized access attempt
+Jan 26 10:39:15 f5 WAF-AVISEC: alert: 192.168.1.138 - - [26/Jan/2025:10:39:15 +0000] "POST /payment HTTP/1.1" 400 128 - Payment card fraud attempt
+Jan 26 10:39:30 f5 WAF-AVISEC: alert: 192.168.1.139 - - [26/Jan/2025:10:39:30 +0000] "POST /admin HTTP/1.1" 403 1024 - Brute force attack (admin panel)
+Jan 26 10:39:45 f5 WAF-AVISEC: alert: 192.168.1.140 - - [26/Jan/2025:10:39:45 +0000] "GET /login?username=admin&password=admin HTTP/1.1" 400 128 - Default login attempt
+Jan 26 10:40:00 f5 WAF-AVISEC: alert: 192.168.1.141 - - [26/Jan/2025:10:40:00 +0000] "GET /robots.txt HTTP/1.1" 200 128 - Information gathering attempt
