@@ -40,3 +40,22 @@ Jan 26 10:39:15 f5 WAF-AVISEC: alert: 192.168.1.138 - - [26/Jan/2025:10:39:15 +0
 Jan 26 10:39:30 f5 WAF-AVISEC: alert: 192.168.1.139 - - [26/Jan/2025:10:39:30 +0000] "POST /admin HTTP/1.1" 403 1024 - Brute force attack (admin panel)
 Jan 26 10:39:45 f5 WAF-AVISEC: alert: 192.168.1.140 - - [26/Jan/2025:10:39:45 +0000] "GET /login?username=admin&password=admin HTTP/1.1" 400 128 - Default login attempt
 Jan 26 10:40:00 f5 WAF-AVISEC: alert: 192.168.1.141 - - [26/Jan/2025:10:40:00 +0000] "GET /robots.txt HTTP/1.1" 200 128 - Information gathering attempt
+Jan 26 10:41:00 f5 WAF-AVISEC: alert: 192.168.1.142 - - [26/Jan/2025:10:41:00 +0000] "GET /login?username=admin'%20OR%201=1%20-- HTTP/1.1" 400 256 - Obfuscated SQL Injection attempt
+Jan 26 10:41:15 f5 WAF-AVISEC: alert: 192.168.1.143 - - [26/Jan/2025:10:41:15 +0000] "GET /search?q=<ScRiPt>alert('XSS')</ScRiPt> HTTP/1.1" 400 128 - Case-variation XSS attempt
+Jan 26 10:41:30 f5 WAF-AVISEC: alert: 192.168.1.144 - - [26/Jan/2025:10:41:30 +0000] "GET /%252E%252E%252Fetc%252Fpasswd HTTP/1.1" 400 256 - Double-encoded path traversal attempt
+Jan 26 10:41:45 f5 WAF-AVISEC: alert: 192.168.1.145 - - [26/Jan/2025:10:41:45 +0000] "POST /login HTTP/1.1" 400 512 - Polymorphic SQL Injection attempt
+Jan 26 10:42:00 f5 WAF-AVISEC: alert: 192.168.1.146 - - [26/Jan/2025:10:42:00 +0000] "GET /search?q=<script>alert('XSS') HTTP/1.1" 400 128 - Fragmented XSS payload
+Jan 26 10:42:15 f5 WAF-AVISEC: alert: 192.168.1.147 - - [26/Jan/2025:10:42:15 +0000] "GET /vulnerable-endpoint?param=exploit-payload HTTP/1.1" 400 256 - Exploitation attempt (CVE-2024-1234)
+Jan 26 10:42:30 f5 WAF-AVISEC: alert: 192.168.1.148 - - [26/Jan/2025:10:42:30 +0000] "POST / HTTP/1.1\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\nGET /admin HTTP/1.1\r\nHost: example.com\r\n\r\n" 400 512 - HTTP Request Smuggling attempt
+Jan 26 10:42:45 f5 WAF-AVISEC: alert: 192.168.1.149 - - [26/Jan/2025:10:42:45 +0000] "GET /proxy?url=http://internal-server/admin HTTP/1.1" 400 256 - SSRF attempt
+Jan 26 10:43:00 f5 WAF-AVISEC: alert: 192.168.1.150 - - [26/Jan/2025:10:43:00 +0000] "GET /user/12345/profile HTTP/1.1" 403 128 - IDOR attempt
+Jan 26 10:43:15 f5 WAF-AVISEC: alert: 192.168.1.151 - - [26/Jan/2025:10:43:15 +0000] "GET /include?file=../../malicious.php HTTP/1.1" 400 256 - File inclusion attempt
+Jan 26 10:43:30 f5 WAF-AVISEC: alert: 192.168.1.152 - - [26/Jan/2025:10:43:30 +0000] "POST /api/v1/user/create HTTP/1.1" 403 512 - API abuse (mass user creation)
+Jan 26 10:43:45 f5 WAF-AVISEC: alert: 192.168.1.153 - - [26/Jan/2025:10:43:45 +0000] "GET /unknown-endpoint?payload=zero-day-exploit HTTP/1.1" 400 256 - Zero-day exploit attempt
+Jan 26 10:44:00 f5 WAF-AVISEC: alert: 192.168.1.154 - - [26/Jan/2025:10:44:00 +0000] "GET /search?q='; DROP TABLE users; -- HTTP/1.1" 400 256 - SQL Injection attempt
+Jan 26 10:44:15 f5 WAF-AVISEC: alert: 192.168.1.155 - - [26/Jan/2025:10:44:15 +0000] "GET /admin HTTP/1.1" 403 128 - Predictable resource location attempt
+Jan 26 10:44:30 f5 WAF-AVISEC: alert: 192.168.1.156 - - [26/Jan/2025:10:44:30 +0000] "GET / HTTP/1.1" 429 128 - HTTP flood detected (1000 requests in 10 seconds)
+Jan 26 10:44:45 f5 WAF-AVISEC: alert: 192.168.1.157 - - [26/Jan/2025:10:44:45 +0000] "POST / HTTP/1.1\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\nGET /admin HTTP/1.1\r\nHost: example.com\r\n\r\n" 400 512 - HTTP Request Smuggling attempt
+Jan 26 10:45:00 f5 WAF-AVISEC: alert: 192.168.1.158 - - [26/Jan/2025:10:45:00 +0000] "GET /../../etc/passwd HTTP/1.1" 400 256 - Directory traversal attempt
+Jan 26 10:45:15 f5 WAF-AVISEC: alert: 192.168.1.159 - - [26/Jan/2025:10:45:15 +0000] "GET /proxy?url=http://internal-server/admin HTTP/1.1" 400 256 - SSRF attempt
+Jan 26 10:45:30 f5 WAF-AVISEC: alert: 192.168.1.160 - - [26/Jan/2025:10:45:30 +0000] "GET /malicious-page HTTP/1.1" 403 128 - Clickjacking attempt
